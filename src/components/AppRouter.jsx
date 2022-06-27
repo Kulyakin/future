@@ -1,17 +1,17 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import MainPage from '../pages/MainPage';
-import { allRoutes } from '../routes';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import MainPage from '../pages/MainPage'
+import { allRoutes } from '../routes'
 
 const AppRouter = () => {
-    return ( 
+    return (
         <Routes>
-            {allRoutes.map(({ path, component}) => (
+            {allRoutes.map(({ path, component }) => (
                 <Route key={path} path={path} element={component}></Route>
             ))}
-             <Route path="*" element={<MainPage/>} />
+            <Route path="*" element={<MainPage />} />
         </Routes>
-     );
+    )
 }
- 
-export default AppRouter;
+
+export default AppRouter

@@ -1,10 +1,10 @@
-import { observer } from 'mobx-react-lite';
-import React, { useEffect, useState } from 'react';
-import BookList from '../components/BookList';
-import Pagination from '../components/Pagination';
-import ResultsCounter from '../components/simple/ResultsCounter';
-import Loader from '../components/simple/Loader';
-import books from '../store/books';
+import { observer } from 'mobx-react-lite'
+import React, { useEffect, useState } from 'react'
+import BookList from '../components/BookList'
+import Pagination from '../components/Pagination'
+import ResultsCounter from '../components/simple/ResultsCounter'
+import Loader from '../components/simple/Loader'
+import books from '../store/booksStore'
 
 const MainPage = observer(() => {
     const [loading, setLoading] = useState(true)
@@ -13,14 +13,13 @@ const MainPage = observer(() => {
         setLoading(false)
     }, [])
 
-    return ( 
+    return (
         <div>
-            <ResultsCounter count={books.foundResults}/>
-            {loading ? <Loader/> :
-                <BookList/>}
-            <Pagination/>
+            <ResultsCounter count={books.foundResults} />
+            {loading ? <Loader /> : <BookList />}
+            <Pagination />
         </div>
-     );
+    )
 })
- 
-export default MainPage;
+
+export default MainPage

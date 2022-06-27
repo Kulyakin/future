@@ -1,10 +1,8 @@
-import { observer } from 'mobx-react-lite';
-import React from 'react';
+import { observer } from 'mobx-react-lite'
+import React from 'react'
 
 const ResultsCounter = observer(({ count }) => {
-    return ( 
-        <span className='counter'>{`Found ${count} results`}</span>
-     );
+    return <span className="counter">{`Found ${count} results`}</span>
 })
- 
-export default ResultsCounter;
+
+export default ResultsCounter

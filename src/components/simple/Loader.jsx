@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
 const Loader = () => {
-    return ( 
-        <div className='loader'>
+    return (
+        <div className="loader">
             <div className="lds-ellipsis">
                 <div></div>
                 <div></div>
@@ -10,7 +10,7 @@ const Loader = () => {
                 <div></div>
             </div>
         </div>
-     );
+    )
 }
- 
-export default Loader;
+
+export default Loader
