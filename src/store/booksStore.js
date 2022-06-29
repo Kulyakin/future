@@ -3,6 +3,7 @@ import axios from 'axios'
 
 class Books {
     books = []
+    nextBooks = []
     sortTypes = [
         { id: 1, type: 'relevance' },
         { id: 2, type: 'newest' }
@@ -22,17 +23,17 @@ class Books {
     sortValue = 'relevance'
     foundResults = 0
     startIndex = 0
-    maxResults = 30
+    maxResults = 1
 
     constructor() {
         makeAutoObservable(this)
         autorun(() => this.startSearch())
     }
 
-    startSearch(event, searchValue) {
+    startSearch(searchValue) {
         axios
             .get(
-                `https://www.googleapis.com/books/v1/volumes?q=${searchValue}subject:${this.category}&orderBy=${this.sortValue}&key=AIzaSyDXqHouNmqOZ6QHy6CcsCQ_lK70lRgpODg&startIndex=${this.startIndex}&maxResults=${this.maxResults}`
+                `https://www.googleapis.com/books/v1/volumes?q=${searchValue}subject:${this.category}&orderBy=${this.sortValue}&key=AIzaSyDXqHouNmqOZ6QHy6CcsCQ_lK70lRgpODg&startIndex=0&maxResults=${this.maxResults}`
             )
             .then((res) => {
                 this.books = [...res.data.items]
@@ -43,16 +44,29 @@ class Books {
 
     setSortValue(value) {
         this.sortValue = value
+        this.startIndex = 0
         console.log(this.sortValue)
     }
 
     setCategory(value) {
         this.category = value
+        this.startIndex = 0
     }
 
-    loadMore() {
-        this.startIndex += 30
-        this.books = [...this.books, ...this.books]
+    loadMore(searchValue) {
+        this.startIndex += 1
+        axios
+            .get(
+                `https://www.googleapis.com/books/v1/volumes?q=${searchValue}subject:${this.category}&orderBy=${this.sortValue}&key=AIzaSyDXqHouNmqOZ6QHy6CcsCQ_lK70lRgpODg&startIndex=${this.startIndex}&maxResults=${this.maxResults}`
+            )
+            .then((res) => {
+                this.nextBooks = [...res.data.items]
+                this.foundResults = res.data.totalItems
+                const copy = this.books
+                copy.push(...this.nextBooks)
+                this.books = [...copy]
+            })
+            .catch((error) => console.log(error))
     }
 }
 

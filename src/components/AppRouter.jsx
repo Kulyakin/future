@@ -7,9 +7,17 @@ const AppRouter = () => {
     return (
         <Routes>
             {allRoutes.map(({ path, component }) => (
-                <Route key={path} path={path} element={component}></Route>
+                <Route 
+                    key={path} 
+                    path={path} 
+                    element={component}
+                >
+                </Route>
             ))}
-            <Route path="*" element={<MainPage />} />
+            <Route 
+                path="*" 
+                element={<MainPage />}
+            />
         </Routes>
     )
 }

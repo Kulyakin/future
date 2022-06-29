@@ -1,8 +1,9 @@
+import { observer } from 'mobx-react-lite'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { BOOKPAGE_ROUTE } from '../utils/constants'
 
-const Book = ({ bookname, author, categories, img, id }) => {
+const Book = observer(({ bookname, author, categories, img, id }) => {
     const navigate = useNavigate()
     return (
         <div
@@ -19,6 +20,6 @@ const Book = ({ bookname, author, categories, img, id }) => {
             </div>
         </div>
     )
-}
+})
 
 export default Book
