@@ -34,11 +34,11 @@ const Search = observer(() => {
             </div>
             <div className="header__filter-sort">
                 <div className="header__categories-filter">
-                    <div>Categories</div>
+                    <div className="header__categories-name">Categories</div>
                     <Categories />
                 </div>
                 <div className="header__sort">
-                    <div>Sorting by</div>
+                    <div className="header__sort-name">Sorting by</div>
                     <SortingBy />
                 </div>
             </div>

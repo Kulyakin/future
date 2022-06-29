@@ -16,7 +16,7 @@ body {
 }
 .header__h1 {
     cursor: pointer;
-    padding: 1em 0 1em;
+    padding: 1em 0 0.6em;
     color: white;
     display: flex;
     align-items: center;
@@ -36,24 +36,30 @@ body {
 }
 
 .header__filter-sort {
-    margin-top: 0.5em;
+    margin-top: 1em;
     padding-bottom: 1em;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
 }
 
 .header__categories-filter {
     display: flex;
     align-items: center;
-    gap: 5px;
+    margin-right: 30px;
+}
+
+.header__categories-name {
+    margin-right: 5px;
 }
 
 .header__sort {
     display: flex;
     align-items: center;
-    gap: 5px;
+}
+
+.header__sort-name {
+    margin-right: 5px;
 }
 
 .counter {
@@ -67,10 +73,12 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 40px;
 }
 
 .book {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 40px;
     cursor: pointer;
     box-sizing: border-box;
     height: 370px;
@@ -159,7 +167,6 @@ body {
 }
 
 .pagination {
-    margin-top: 1em;
     display: flex;
     justify-content: center;
 }
@@ -268,9 +275,14 @@ body {
     .header__filter-sort {
         margin-top: 0.5em;
         padding-bottom: 1em;
-        gap: 10px;
         display: flex;
         flex-direction: column;
+        align-items: center;
+    }
+
+    .header__sort {
+        margin-top: 10px;
+        display: flex;
         align-items: center;
     }
 
@@ -284,9 +296,14 @@ body {
     .header__filter-sort {
         margin-top: 0.5em;
         padding-bottom: 1em;
-        gap: 10px;
         display: flex;
         flex-direction: column;
+        align-items: center;
+    }
+
+    .header__sort {
+        margin-top: 10px;
+        display: flex;
         align-items: center;
     }
 
