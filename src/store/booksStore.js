@@ -23,7 +23,7 @@ class Books {
     sortValue = 'relevance'
     foundResults = 0
     startIndex = 0
-    maxResults = 1
+    maxResults = 30
 
     constructor() {
         makeAutoObservable(this)
@@ -54,7 +54,7 @@ class Books {
     }
 
     loadMore(searchValue) {
-        this.startIndex += 1
+        this.startIndex += 30
         axios
             .get(
                 `https://www.googleapis.com/books/v1/volumes?q=${searchValue}subject:${this.category}&orderBy=${this.sortValue}&key=AIzaSyDXqHouNmqOZ6QHy6CcsCQ_lK70lRgpODg&startIndex=${this.startIndex}&maxResults=${this.maxResults}`
