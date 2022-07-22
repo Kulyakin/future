@@ -11,7 +11,7 @@ const Search = observer(() => {
     const navigate = useNavigate()
     const handleSearch = (event) => {
         if (event.key === 'Enter') {
-            books.startSearch(event, searchValue)
+            books.startSearch(searchValue)
         }
     }
 
